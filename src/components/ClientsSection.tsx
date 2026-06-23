@@ -2,29 +2,29 @@ import Placeholder from "./Placeholder";
 
 const clients = [
   {
-    name: "Perfetestetic",
-    slug: "perfetestetic",
-    location: "Colombia",
+    name: "Cold Esthetic",
+    slug: "cold-esthetic",
+    location: "Medicina estética",
     description:
-      "Clínica de medicina estética con múltiples profesionales. Gestiona su operación completa a través de XIMKA.",
-    demoLabel: "SCREENSHOT: XIMKA EN PERFETESTETIC",
+      "Una de las clínicas que ya opera su día a día sobre XIMKA: historia clínica, procedimientos y cifras del negocio en un solo lugar.",
+    demoLabel: "SCREENSHOT: XIMKA EN COLD ESTHETIC",
     demoHref: "#",
   },
   {
-    name: "Coldesthetic",
-    slug: "coldesthetic",
-    location: "Colombia",
+    name: "Perfect Esthetic",
+    slug: "perfect-esthetic",
+    location: "Medicina estética",
     description:
-      "Primera clínica en adoptar XIMKA. Ha digitalizado completamente su historial clínico y seguimiento de ingresos.",
-    demoLabel: "SCREENSHOT: XIMKA EN COLDESTHETIC",
+      "Gestiona pacientes, inventario y la salud financiera de la clínica con XIMKA, en tiempo real y sin papeles sueltos.",
+    demoLabel: "SCREENSHOT: XIMKA EN PERFECT ESTHETIC",
     demoHref: "#",
   },
   {
-    name: "Podocare",
+    name: "PODOCARE",
     slug: "podocare",
-    location: "Colombia",
+    location: "Podología",
     description:
-      "Clínica especializada que utiliza XIMKA para el registro y trazabilidad de sus tratamientos y procedimientos.",
+      "Clínica de podología que usa XIMKA para el registro y la trazabilidad de cada tratamiento y procedimiento.",
     demoLabel: "SCREENSHOT: XIMKA EN PODOCARE",
     demoHref: "#",
   },
@@ -36,14 +36,13 @@ export default function ClientsSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-sm font-semibold text-teal-600 uppercase tracking-wide">
-            Clientes actuales
+            Casos de éxito
           </span>
           <h2 className="mt-3 text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
-            Clínicas que ya digitalizaron su operación con XIMKA
+            No es una promesa. XIMKA ya está en producción.
           </h2>
           <p className="mt-4 text-slate-500">
-            En producción activa con clientes reales del sector de medicina
-            estética colombiana.
+            Clínicas reales en Colombia que ya operan su día a día sobre XIMKA.
           </p>
         </div>
 

@@ -1,4 +1,5 @@
 import Placeholder from "./Placeholder";
+import Logo from "./Logo";
 
 export default function HeroSection() {
   return (
@@ -9,24 +10,26 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Texto */}
           <div className="space-y-8">
+            <Logo className="w-16 h-16 text-teal-400" />
+
             <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 rounded-full px-4 py-1.5">
               <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
               <span className="text-sm text-teal-300 font-medium">
-                En producción con 3 clínicas activas
+                Ya en producción en clínicas reales en Colombia
               </span>
             </div>
 
             <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight">
-              XIMKA
+              Tu clínica entera
               <span className="block text-teal-400 mt-1">
-                Gestión clínica para medicina estética
+                en un solo lugar
               </span>
             </h1>
 
             <p className="text-lg text-slate-300 leading-relaxed max-w-lg">
-              Reemplaza las agendas físicas, hojas de Excel y registros en papel
-              por una plataforma digital centralizada, segura y diseñada
-              específicamente para el contexto sanitario colombiano.
+              Historia clínica, procedimientos, inventario y las cifras de tu
+              negocio — sin carpetas de papel, sin Excel suelto, sin grupos de
+              WhatsApp. XIMKA ya opera en clínicas reales en Colombia.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -34,7 +37,7 @@ export default function HeroSection() {
                 href="#"
                 className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
               >
-                Ver demo en vivo
+                Agenda una demo
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -65,9 +68,9 @@ export default function HeroSection() {
             {/* Estadísticas rápidas */}
             <div className="flex flex-wrap gap-8 pt-4 border-t border-white/10">
               {[
-                { value: "3", label: "Clínicas activas" },
+                { value: "3", label: "Clínicas en producción" },
                 { value: "100%", label: "Digital y centralizado" },
-                { value: "2FA", label: "Roles y permisos" },
+                { value: "Tiempo real", label: "Cifras de tu negocio" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl font-bold text-teal-400">{stat.value}</p>

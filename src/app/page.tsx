@@ -1,9 +1,9 @@
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import RolesSection from "@/components/RolesSection";
-import StatsPreviewSection from "@/components/StatsPreviewSection";
+import WhatIsXimkaSection from "@/components/WhatIsXimkaSection";
+import BenefitsSection from "@/components/BenefitsSection";
 import ClientsSection from "@/components/ClientsSection";
+import SecuritySection from "@/components/SecuritySection";
 import CTASection from "@/components/CTASection";
 
 export default function Home() {
@@ -11,10 +11,10 @@ export default function Home() {
     <main>
       <HeroSection />
       <ProblemSection />
-      <FeaturesSection />
-      <RolesSection />
-      <StatsPreviewSection />
+      <WhatIsXimkaSection />
+      <BenefitsSection />
       <ClientsSection />
+      <SecuritySection />
       <CTASection />
     </main>
   );

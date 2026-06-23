@@ -1,17 +1,30 @@
+import Logo from "./Logo";
+
 export default function CTASection() {
   return (
     <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white">
       {/* CTA principal */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
         <h2 className="text-3xl lg:text-5xl font-bold leading-tight mb-6">
-          ¿Lista/o para digitalizar su clínica?
+          Ordena tu clínica hoy
         </h2>
         <p className="text-lg text-slate-300 max-w-xl mx-auto mb-10">
-          Digitalice su historial clínico, tome el control de sus finanzas y
-          elimine los conflictos de agenda. Hablemos.
+          Agenda una demo y te mostramos XIMKA funcionando con los procesos de tu
+          propia clínica.
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center">
+          {/* Agenda una demo */}
+          <a
+            href="#"
+            className="inline-flex items-center gap-3 bg-teal-500 hover:bg-teal-400 text-white font-semibold px-8 py-4 rounded-xl transition-colors text-lg"
+          >
+            Agenda una demo
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+
           {/* WhatsApp */}
           <a
             href="#"
@@ -43,9 +56,12 @@ export default function CTASection() {
       {/* Footer */}
       <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
         <div className="flex items-center gap-2">
-          <span className="font-bold text-white text-base">XIMKA</span>
+          <span className="flex items-center gap-2">
+            <Logo className="w-6 h-6 text-teal-400" />
+            <span className="font-bold text-white text-base">XIMKA</span>
+          </span>
           <span>·</span>
-          <span>Sistema de Gestión Clínica para Medicina Estética</span>
+          <span>Toda tu clínica en un solo lugar</span>
         </div>
 
         <div className="flex items-center gap-4">

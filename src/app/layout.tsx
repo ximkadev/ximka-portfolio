@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "XIMKA — Sistema de Gestión Clínica para Medicina Estética",
+  title: "XIMKA — Tu clínica entera en un solo lugar",
   description:
-    "Plataforma digital centralizada para clínicas de medicina estética. Historial clínico, gestión de pacientes, estadísticas y control de acceso por roles. Diseñada para el contexto sanitario colombiano.",
+    "Historia clínica, procedimientos, inventario y las cifras de tu negocio en un solo lugar. Sin papel, sin Excel suelto, sin grupos de WhatsApp. XIMKA ya opera en clínicas reales en Colombia.",
 };
 
 export default function RootLayout({
@@ -28,7 +29,10 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
