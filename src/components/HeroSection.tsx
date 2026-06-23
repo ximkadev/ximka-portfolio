@@ -85,7 +85,7 @@ export default function HeroSection() {
             <Placeholder
               label="SCREENSHOT O VIDEO DEL DASHBOARD PRINCIPAL"
               aspectRatio="video"
-              className="shadow-2xl shadow-black/40 border-slate-700"
+              tone="dark"
             />
           </div>
         </div>

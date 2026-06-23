@@ -80,18 +80,18 @@ export default function ClientsSection() {
 
                 {/* Testimonio placeholder */}
                 <div className="bg-white border border-slate-200 rounded-xl p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-400 text-xs font-bold">
-                      ?
-                    </div>
-                    <div>
-                      <p className="text-xs font-mono text-slate-300 uppercase tracking-wide">
-                        TESTIMONIO DEL MÉDICO LÍDER
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-xs text-slate-300 italic font-mono">
-                    &quot;[Agregar testimonio aquí]&quot;
+                  <svg
+                    className="w-6 h-6 text-teal-200 mb-1"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
+                  </svg>
+                  <p className="text-sm text-slate-400 italic leading-relaxed">
+                    Espacio para el testimonio del médico líder.
+                  </p>
+                  <p className="mt-2 text-xs text-slate-300 uppercase tracking-wide">
+                    Próximamente
                   </p>
                 </div>
 
