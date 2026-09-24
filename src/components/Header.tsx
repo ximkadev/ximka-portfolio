@@ -14,17 +14,29 @@ export default function Header() {
 
         <nav className="flex items-center gap-6">
           <Link
+            href="/casos"
+            className="hidden md:inline text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors"
+          >
+            Casos
+          </Link>
+          <Link
+            href="/historia-clinica-demo"
+            className="hidden md:inline text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors"
+          >
+            Historia clínica demo
+          </Link>
+          <Link
             href="/tecnologia"
             className="hidden sm:inline text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors"
           >
             Tecnología
           </Link>
-          <a
-            href="#"
+          <Link
+            href="/#contacto"
             className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-white font-semibold text-sm px-4 py-2 rounded-lg transition-colors"
           >
             Agenda una demo
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Placeholder from "./Placeholder";
 
 const clients = [
@@ -8,7 +9,6 @@ const clients = [
     description:
       "Una de las clínicas que ya opera su día a día sobre XIMKA: historia clínica, procedimientos y cifras del negocio en un solo lugar.",
     demoLabel: "SCREENSHOT: XIMKA EN COLD ESTHETIC",
-    demoHref: "#",
   },
   {
     name: "Perfect Esthetic",
@@ -17,7 +17,6 @@ const clients = [
     description:
       "Gestiona pacientes, inventario y la salud financiera de la clínica con XIMKA, en tiempo real y sin papeles sueltos.",
     demoLabel: "SCREENSHOT: XIMKA EN PERFECT ESTHETIC",
-    demoHref: "#",
   },
   {
     name: "PODOCARE",
@@ -26,7 +25,6 @@ const clients = [
     description:
       "Clínica de podología que usa XIMKA para el registro y la trazabilidad de cada tratamiento y procedimiento.",
     demoLabel: "SCREENSHOT: XIMKA EN PODOCARE",
-    demoHref: "#",
   },
 ];
 
@@ -96,11 +94,11 @@ export default function ClientsSection() {
                 </div>
 
                 {/* CTA */}
-                <a
-                  href={client.demoHref}
+                <Link
+                  href={`/casos#${client.slug}`}
                   className="inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-400 text-white font-semibold text-sm px-4 py-3 rounded-lg transition-colors w-full"
                 >
-                  Ver demo
+                  Ver caso
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -114,7 +112,7 @@ export default function ClientsSection() {
                       d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           ))}
