@@ -2,7 +2,7 @@ import Logo from "./Logo";
 
 export default function CTASection() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white">
+    <footer id="contacto" className="bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white">
       {/* CTA principal */}
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
         <h2 className="text-3xl lg:text-5xl font-bold leading-tight mb-6">
