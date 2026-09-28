@@ -67,7 +67,7 @@ export default function ProblemSection() {
           </span>
           <ArrowRight className="w-5 h-5 text-slate-400 rotate-90 md:rotate-0" aria-hidden />
           <span className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-slate-900 text-white font-semibold">
-            <Logo className="w-6 h-6 text-teal-400" acento="#0f172a" />
+            <Logo className="h-4" sobreOscuro />
             XIMKA
           </span>
           <ArrowRight className="w-5 h-5 text-slate-400 rotate-90 md:rotate-0" aria-hidden />

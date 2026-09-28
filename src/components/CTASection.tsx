@@ -35,7 +35,7 @@ export default function CTASection() {
         <div className="max-w-7xl mx-auto px-6 py-10 grid gap-8 sm:grid-cols-3 text-sm">
           <div>
             <Link href="/" className="inline-flex items-center gap-2">
-              <Logo className="w-8 h-8 text-teal-400" acento="#0f172a" />
+              <Logo className="h-6" sobreOscuro />
               <span className="font-extrabold tracking-[0.14em] text-base">XIMKA</span>
             </Link>
             <p className="mt-3 text-slate-400 max-w-xs">
