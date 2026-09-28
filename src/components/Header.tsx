@@ -19,8 +19,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-200/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2" aria-label="XIMKA, inicio">
-          <Logo className="w-9 h-9 text-teal-700" />
+        <Link href="/" className="flex items-center gap-2.5" aria-label="XIMKA, inicio">
+          <Logo className="h-8" />
           <span className="text-[19px] font-extrabold tracking-[0.14em] text-slate-900">
             XIMKA
           </span>
