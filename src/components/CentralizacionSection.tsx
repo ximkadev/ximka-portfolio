@@ -8,6 +8,7 @@ import {
   Stethoscope,
   UserRound,
 } from "lucide-react";
+import Revelar from "./Revelar";
 
 const modulos = [
   { icono: Stethoscope, label: "Historia clínica" },
@@ -53,16 +54,17 @@ export default function CentralizacionSection() {
           </p>
 
           <dl className="mt-10 space-y-6">
-            {ejemplos.map((e) => (
-              <div key={e.titulo} className="border-l-2 border-teal-500 pl-5">
+            {ejemplos.map((e, i) => (
+              <Revelar key={e.titulo} retraso={i * 120} className="border-l-2 border-teal-500 pl-5">
                 <dt className="font-semibold text-slate-900">{e.titulo}</dt>
                 <dd className="mt-1 text-slate-600 leading-relaxed">{e.texto}</dd>
-              </div>
+              </Revelar>
             ))}
           </dl>
         </div>
 
         {/* El paciente en el centro, con lo que cuelga de su registro alrededor. */}
+        <Revelar retraso={150}>
         <div aria-hidden className="orbita-pausable relative mx-auto w-full max-w-md aspect-square">
           <div className="absolute inset-[36%] rounded-full bg-white border border-slate-200 shadow-lg grid place-items-center text-center">
             <div>
@@ -100,6 +102,7 @@ export default function CentralizacionSection() {
           })}
           </div>
         </div>
+        </Revelar>
       </div>
     </section>
   );

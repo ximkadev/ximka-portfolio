@@ -11,27 +11,31 @@ export default function HeroSection() {
       />
       <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 lg:pt-24 lg:pb-28 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-14 items-center">
         <div className="min-w-0">
-          <p className="inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-400/10 px-3.5 py-1 text-sm font-medium text-teal-200">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-400" aria-hidden />
+          <p className="entrada inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-400/10 px-3.5 py-1 text-sm font-medium text-teal-200">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 latido" aria-hidden />
             En uso en clínicas en Colombia
           </p>
 
-          <h1 className="mt-7 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
+          <h1 style={{ animationDelay: "80ms" }} className="entrada mt-7 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
             Gestión integral de tu clínica
             <span className="block text-teal-400">en un solo lugar.</span>
           </h1>
 
-          <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
+          <p style={{ animationDelay: "160ms" }} className="entrada mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
             Historia clínica, pacientes, procedimientos, inventario e información de tu negocio,
             centralizados en una sola plataforma.
           </p>
 
-          <BotonesDemo className="mt-9" />
+          <div style={{ animationDelay: "240ms" }} className="entrada">
+            <BotonesDemo className="mt-9" />
+          </div>
         </div>
 
-        <figure className="min-w-0">
+        <figure style={{ animationDelay: "300ms" }} className="entrada min-w-0">
           <Link href="/historia-clinica-demo" aria-label="Abrir la historia clínica demo" className="block">
-            <VistaPreviaHistoria />
+            <div className="flotar">
+              <VistaPreviaHistoria />
+            </div>
           </Link>
           <figcaption className="mt-3 text-xs text-slate-400">
             Historia clínica de XIMKA con datos ficticios.{" "}

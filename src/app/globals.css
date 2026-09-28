@@ -50,3 +50,123 @@ body {
     animation: none;
   }
 }
+
+/* ── Movimiento de la landing ──────────────────────────────────────────────
+   Todo es sutil y se apaga por completo con prefers-reduced-motion. */
+
+/* Aparición al hacer scroll (componente Revelar). Solo se oculta si hay
+   JavaScript: sin él, el contenido se ve normal. */
+@media (scripting: enabled) {
+  .revelar {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .revelar.revelar-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Entrada del hero al cargar. */
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+.entrada {
+  animation: entrar 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Flotación suave (vista previa del hero, fragmentos del problema). */
+@keyframes flotar {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.flotar {
+  animation: flotar 7s ease-in-out infinite;
+}
+
+/* Flecha que avanza (transición disperso → XIMKA → centralizado). */
+@keyframes avanzar {
+  50% {
+    transform: translateX(5px);
+  }
+}
+.avanzar {
+  animation: avanzar 1.6s ease-in-out infinite;
+}
+
+/* Barras de audio del registro por voz. */
+@keyframes onda {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.onda {
+  transform-origin: bottom;
+  animation: onda 1.1s ease-in-out infinite;
+}
+
+/* Barras de la gráfica que crecen al aparecer. */
+@keyframes crecer {
+  from {
+    transform: scaleY(0);
+  }
+}
+.revelar-visible .crecer {
+  transform-origin: bottom;
+  animation: crecer 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Latido para estados que piden atención (stock crítico). */
+@keyframes latido {
+  50% {
+    opacity: 0.35;
+  }
+}
+.latido {
+  animation: latido 1.8s ease-in-out infinite;
+}
+
+/* Pulso ocasional del botón flotante de WhatsApp. */
+@keyframes pulso-anillo {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  30%,
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+.pulso-anillo {
+  animation: pulso-anillo 4s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revelar,
+  .revelar.revelar-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .entrada,
+  .flotar,
+  .avanzar,
+  .onda,
+  .revelar-visible .crecer,
+  .latido,
+  .pulso-anillo {
+    animation: none;
+  }
+}

@@ -1,4 +1,5 @@
 import { IconoWhatsApp } from "./BotonesDemo";
+import Revelar from "./Revelar";
 import { WHATSAPP_KAROL_DEMO, WHATSAPP_KAROL_VISIBLE } from "@/config/contacto";
 
 /**
@@ -34,7 +35,7 @@ export default function FoundersSection() {
           Founders
         </h2>
         <ul className="mt-8 flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
-          {founders.map((f) => {
+          {founders.map((f, i) => {
             const contenido = (
               <>
                 {f.foto ? (
@@ -53,7 +54,7 @@ export default function FoundersSection() {
               </>
             );
             return (
-              <li key={f.nombre} className="flex flex-col items-center gap-3">
+              <Revelar como="li" key={f.nombre} retraso={i * 120} className="flex flex-col items-center gap-3">
                 {f.enlace ? (
                   <a href={f.enlace} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 hover:opacity-80">
                     {contenido}
@@ -73,7 +74,7 @@ export default function FoundersSection() {
                     {f.whatsapp.visible}
                   </a>
                 )}
-              </li>
+              </Revelar>
             );
           })}
         </ul>

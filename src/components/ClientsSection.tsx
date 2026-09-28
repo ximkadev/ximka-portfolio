@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { casos } from "@/data/casos";
+import Revelar from "./Revelar";
 
 // Clínicas que usan XIMKA. Para agregar una, basta con sumarla a
 // src/data/casos.ts con tipo "real" y su logo en /public/clientes.
@@ -16,8 +17,8 @@ export default function ClientsSection() {
         </h2>
 
         <ul className="mt-14 flex flex-wrap justify-center gap-x-14 gap-y-10">
-          {clientes.map((c) => (
-            <li key={c.slug}>
+          {clientes.map((c, i) => (
+            <Revelar como="li" key={c.slug} retraso={i * 120}>
               <Link href={`/casos#${c.slug}`} className="group flex flex-col items-center gap-3">
                 {c.logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -27,7 +28,7 @@ export default function ClientsSection() {
                     width={96}
                     height={96}
                     loading="lazy"
-                    className="w-24 h-24 rounded-full object-cover border border-slate-200 bg-white grayscale-[35%] group-hover:grayscale-0 transition"
+                    className="w-24 h-24 rounded-full object-cover border border-slate-200 bg-white grayscale-[35%] group-hover:grayscale-0 group-hover:scale-105 transition"
                   />
                 ) : (
                   <span className="w-24 h-24 rounded-full border border-slate-200 bg-slate-50 grid place-items-center text-lg font-bold text-slate-500">
@@ -37,7 +38,7 @@ export default function ClientsSection() {
                 <span className="font-semibold text-slate-800">{c.nombre}</span>
                 <span className="text-sm text-slate-500 -mt-2">{c.especialidad}</span>
               </Link>
-            </li>
+            </Revelar>
           ))}
         </ul>
 

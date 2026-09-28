@@ -1,3 +1,4 @@
+import Revelar from "./Revelar";
 import { AudioLines, CheckCheck, FileText, ListTree, Mic } from "lucide-react";
 
 // Flujo real del registro por voz de XIMKA: grabación → transcripción →
@@ -31,17 +32,29 @@ export default function VozSection() {
             const Icono = p.icono;
             const final = i === pasos.length - 1;
             return (
-              <li
+              <Revelar
+                como="li"
                 key={p.titulo}
+                retraso={i * 110}
                 className={`relative rounded-2xl border p-5 ${final ? "bg-slate-900 border-slate-900 text-white" : "bg-white border-slate-200"}`}
               >
                 <span className={`text-xs font-bold tabular-nums ${final ? "text-teal-300" : "text-slate-400"}`}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <Icono className={`mt-3 w-6 h-6 ${final ? "text-teal-300" : "text-teal-700"}`} aria-hidden />
+                <div className="mt-3 flex items-end gap-2 h-6">
+                  <Icono className={`w-6 h-6 ${final ? "text-teal-300" : "text-teal-700"}`} aria-hidden />
+                  {/* Barras de audio: la voz "sonando" en el primer paso. */}
+                  {i === 0 && (
+                    <span aria-hidden className="flex items-end gap-0.5 h-5">
+                      {[0, 1, 2, 3, 4].map((b) => (
+                        <span key={b} className="onda w-1 h-full rounded-full bg-teal-400" style={{ animationDelay: `${b * 0.13}s` }} />
+                      ))}
+                    </span>
+                  )}
+                </div>
                 <p className="mt-3 font-semibold">{p.titulo}</p>
                 <p className={`mt-1 text-sm leading-relaxed ${final ? "text-slate-300" : "text-slate-600"}`}>{p.texto}</p>
-              </li>
+              </Revelar>
             );
           })}
         </ol>

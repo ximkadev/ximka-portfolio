@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, PlayCircle } from "lucide-react";
+import Revelar from "./Revelar";
 
 // Lo que el visitante puede hacer en la demo, en el orden del recorrido.
 const recorrido = [
@@ -53,12 +54,12 @@ export default function DemoSection() {
             <p className="text-sm font-semibold text-slate-300">En la demo puedes:</p>
             <ol className="mt-5 space-y-4">
               {recorrido.map((r, i) => (
-                <li key={r} className="flex items-center gap-4">
+                <Revelar como="li" key={r} retraso={i * 110} className="flex items-center gap-4">
                   <span className="w-8 h-8 shrink-0 rounded-full border border-teal-400/40 text-teal-300 text-sm font-bold grid place-items-center tabular-nums">
                     {i + 1}
                   </span>
                   <span className="text-slate-100">{r}</span>
-                </li>
+                </Revelar>
               ))}
             </ol>
           </div>

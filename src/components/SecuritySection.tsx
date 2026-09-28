@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, DatabaseBackup, FolderLock, History, KeyRound, LayoutList, Server } from "lucide-react";
+import Revelar from "./Revelar";
 
 // Atributos del sistema contados desde lo que le importa a una clínica. Todo
 // verificado en el código de XIMKA; las tecnologías quedan como dato secundario.
@@ -48,14 +49,14 @@ export default function SecuritySection() {
         </div>
 
         <ul className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
-          {atributos.map((a) => {
+          {atributos.map((a, i) => {
             const Icono = a.icono;
             return (
-              <li key={a.titulo}>
+              <Revelar como="li" key={a.titulo} retraso={(i % 3) * 110}>
                 <Icono className="w-6 h-6 text-teal-700" aria-hidden />
                 <h3 className="mt-4 font-bold text-slate-900">{a.titulo}</h3>
                 <p className="mt-1.5 text-slate-600 leading-relaxed">{a.texto}</p>
-              </li>
+              </Revelar>
             );
           })}
         </ul>

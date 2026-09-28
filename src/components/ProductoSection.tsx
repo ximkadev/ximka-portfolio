@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Revelar from "./Revelar";
 import { ArrowRight, CalendarDays, Camera, Check, Lock, PenLine } from "lucide-react";
 
 // Funcionalidades del producto. Solo lo verificado en el código de XIMKA; lo que
@@ -6,22 +7,22 @@ import { ArrowRight, CalendarDays, Camera, Check, Lock, PenLine } from "lucide-r
 
 function Encabezado({ etiqueta, titulo, texto }: { etiqueta: string; titulo: string; texto: string }) {
   return (
-    <div>
+    <Revelar>
       <p className="text-sm font-semibold text-teal-700 uppercase tracking-wider">{etiqueta}</p>
       <h3 className="mt-3 text-2xl lg:text-4xl font-bold text-slate-900 leading-tight tracking-tight">{titulo}</h3>
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">{texto}</p>
-    </div>
+    </Revelar>
   );
 }
 
 function Lista({ items }: { items: string[] }) {
   return (
     <ul className="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
-      {items.map((i) => (
-        <li key={i} className="flex gap-2.5 text-slate-700">
+      {items.map((item, n) => (
+        <Revelar como="li" key={item} retraso={100 + n * 60} className="flex gap-2.5 text-slate-700">
           <Check className="w-4 h-4 mt-1 text-teal-600 shrink-0" aria-hidden />
-          {i}
-        </li>
+          {item}
+        </Revelar>
       ))}
     </ul>
   );
@@ -29,12 +30,14 @@ function Lista({ items }: { items: string[] }) {
 
 function Marco({ children, nota = "Ilustración con datos ficticios" }: { children: React.ReactNode; nota?: string }) {
   return (
-    <figure>
-      <div aria-hidden className="rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/60 p-5 select-none">
-        {children}
-      </div>
-      <figcaption className="mt-2 text-xs text-slate-400">{nota}</figcaption>
-    </figure>
+    <Revelar retraso={150}>
+      <figure>
+        <div aria-hidden className="rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/60 p-5 select-none">
+          {children}
+        </div>
+        <figcaption className="mt-2 text-xs text-slate-400">{nota}</figcaption>
+      </figure>
+    </Revelar>
   );
 }
 
@@ -110,7 +113,10 @@ function VisualInventario() {
               <td className="py-2 text-right tabular-nums text-slate-800">{p.stock}</td>
               <td className="py-2 text-right tabular-nums text-slate-400">{p.minimo}</td>
               <td className="py-2 text-right">
-                <span className={`text-[11px] font-semibold border rounded-md px-1.5 py-0.5 ${ESTADO_STOCK[p.estado]}`}>{p.estado}</span>
+                <span className={`inline-flex items-center gap-1 text-[11px] font-semibold border rounded-md px-1.5 py-0.5 ${ESTADO_STOCK[p.estado]}`}>
+                  {p.estado !== "Disponible" && <span className="latido w-1.5 h-1.5 rounded-full bg-current" />}
+                  {p.estado}
+                </span>
               </td>
             </tr>
           ))}
@@ -141,7 +147,11 @@ function VisualEstadisticas() {
       <p className="mt-5 text-xs font-semibold text-slate-500">Tendencia de ingresos</p>
       <div className="mt-2 h-28 flex items-end gap-2">
         {barras.map((h, i) => (
-          <div key={i} className={`flex-1 rounded-t-md ${i === barras.length - 1 ? "bg-teal-500" : "bg-teal-200"}`} style={{ height: `${h}%` }} />
+          <div
+            key={i}
+            className={`crecer flex-1 rounded-t-md ${i === barras.length - 1 ? "bg-teal-500" : "bg-teal-200"}`}
+            style={{ height: `${h}%`, animationDelay: `${300 + i * 80}ms` }}
+          />
         ))}
       </div>
     </Marco>
@@ -239,7 +249,7 @@ export default function ProductoSection() {
 
         {/* Complementos de la atención */}
         <div className="mt-28 grid md:grid-cols-3 gap-10 border-t border-slate-200 pt-16">
-          <div>
+          <Revelar>
             <Camera className="w-6 h-6 text-teal-700" aria-hidden />
             <h3 className="mt-4 text-lg font-bold text-slate-900">
               El antes y después también forma parte de la historia del paciente.
@@ -248,8 +258,8 @@ export default function ProductoSection() {
               Las fotografías clínicas quedan asociadas al paciente y a su atención, en
               almacenamiento privado. No terminan dispersas en celulares sin contexto.
             </p>
-          </div>
-          <div>
+          </Revelar>
+          <Revelar retraso={120}>
             <PenLine className="w-6 h-6 text-teal-700" aria-hidden />
             <h3 className="mt-4 text-lg font-bold text-slate-900">
               Gestión de consentimientos asociados a la atención.
@@ -258,8 +268,8 @@ export default function ProductoSection() {
               El paciente firma en pantalla y el consentimiento queda guardado junto con su
               registro clínico, en un documento PDF.
             </p>
-          </div>
-          <div>
+          </Revelar>
+          <Revelar retraso={240}>
             <div className="flex items-center gap-3">
               <CalendarDays className="w-6 h-6 text-teal-700" aria-hidden />
               <span className="text-[11px] font-semibold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
@@ -271,7 +281,7 @@ export default function ProductoSection() {
               Estamos integrando la agenda para que las citas vivan en el mismo entorno que la
               historia del paciente y sus procedimientos.
             </p>
-          </div>
+          </Revelar>
         </div>
       </div>
     </section>
