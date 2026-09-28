@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MAILTO_DEMO } from "@/config/contacto";
 
 export const metadata: Metadata = {
   title: "Cómo está construido XIMKA — XIMKA",
   description:
-    "Arquitectura, seguridad y stack tecnológico de XIMKA: una plataforma en producción construida con prácticas pensadas para datos clínicos reales. Laravel 11, Next.js 15, Docker y almacenamiento privado cifrado.",
+    "Arquitectura, seguridad y stack tecnológico de XIMKA: una plataforma en producción construida con prácticas pensadas para datos clínicos reales. Laravel, Next.js, Docker y almacenamiento privado.",
 };
 
 const blocks = [
@@ -26,7 +27,7 @@ const blocks = [
     ),
     title: "Autenticación robusta y control de acceso por rol",
     description:
-      "Sesiones gestionadas con Laravel Sanctum sobre cookies httpOnly, con protección CSRF obligatoria en toda operación que modifica datos. El acceso es granular por rol: la administradora ve y gestiona todo el negocio; cada colaborador accede únicamente a sus propios pacientes. Un colaborador inactivo queda bloqueado de inmediato a nivel de sistema.",
+      "Autenticación con Laravel Sanctum y límites de intentos. El acceso se controla por rol: la administración gestiona todo el negocio y los demás usuarios acceden a lo que su rol permite. Un usuario inactivo queda bloqueado de inmediato a nivel de sistema.",
   },
   {
     icon: (
@@ -46,7 +47,7 @@ const blocks = [
     ),
     title: "Copias de seguridad cifradas y automáticas",
     description:
-      "Backups automáticos cifrados con AES-256 hacia un bucket privado, con notificación por correo. La información de tu clínica no depende de que alguien se acuerde de respaldarla: el sistema lo hace solo y de forma segura.",
+      "Backups automáticos y cifrados hacia un bucket privado. La información de tu clínica no depende de que alguien se acuerde de respaldarla: el sistema lo hace solo y de forma segura.",
   },
   {
     icon: (
@@ -73,11 +74,11 @@ const blocks = [
 const stack = [
   {
     label: "Backend",
-    items: "Laravel 11 · PHP 8.4 · MySQL 8 · API REST versionada",
+    items: "Laravel · PHP · MySQL · API REST",
   },
   {
     label: "Frontend",
-    items: "Next.js 15 · React 19 · TypeScript",
+    items: "Next.js · React · TypeScript",
   },
   {
     label: "Infraestructura",
@@ -171,10 +172,10 @@ export default function TecnologiaPage() {
               Volver al inicio
             </Link>
             <a
-              href="#"
+              href={MAILTO_DEMO}
               className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
             >
-              Agenda una demo
+              Solicita una demo
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

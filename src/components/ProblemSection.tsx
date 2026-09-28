@@ -1,87 +1,79 @@
-const problems = [
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-      </svg>
-    ),
-    title: "Información partida",
-    description:
-      "La historia del paciente en una carpeta, los precios en un Excel, las fotos en un celular y lo que se vende guardado en la cabeza de alguien.",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-      </svg>
-    ),
-    title: "Facturación a mano",
-    description:
-      "Cuando quieres saber cuánto facturaste este mes, toca sumar a mano. Tu negocio avanza a ciegas, sin cifras en tiempo real.",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-      </svg>
-    ),
-    title: "Inventario sin control",
-    description:
-      "Cuando un insumo se acaba, te enteras tarde y mal. Nadie sabe con certeza qué hay, qué falta ni cuánto te está costando.",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-      </svg>
-    ),
-    title: "Pacientes desde cero",
-    description:
-      "Cada paciente nuevo es volver a empezar de cero. Sin un registro único, repites el mismo trabajo una y otra vez.",
-  },
+import {
+  ArrowRight,
+  Camera,
+  FileSpreadsheet,
+  FolderOpen,
+  History,
+  MessageCircle,
+  NotebookPen,
+  Paperclip,
+} from "lucide-react";
+import Logo from "./Logo";
+
+// No se presentan estas herramientas como "malas": el problema es que la
+// información de una misma clínica termina repartida entre todas ellas.
+const fragmentos = [
+  { icono: FolderOpen, lugar: "Carpetas", contenido: "Historias clínicas en papel" },
+  { icono: FileSpreadsheet, lugar: "Excel", contenido: "Controles y lista de precios" },
+  { icono: MessageCircle, lugar: "WhatsApp", contenido: "La coordinación del día a día" },
+  { icono: Camera, lugar: "Celulares", contenido: "Fotografías de antes y después" },
+  { icono: NotebookPen, lugar: "Cuadernos", contenido: "Inventario anotado a mano" },
+  { icono: Paperclip, lugar: "Archivos sueltos", contenido: "Datos administrativos por separado" },
+  { icono: History, lugar: "Memoria del equipo", contenido: "Lo que pasó hace meses, difícil de encontrar" },
 ];
+
+// Pequeñas variaciones de posición para que el bloque se lea como "disperso".
+const desorden = ["lg:-rotate-2", "lg:rotate-1 lg:translate-y-3", "lg:-rotate-1", "lg:rotate-2 lg:-translate-y-2", "lg:rotate-1", "lg:-rotate-2 lg:translate-y-2", "lg:rotate-1 lg:-translate-y-1"];
 
 export default function ProblemSection() {
   return (
-    <section className="bg-white py-24">
+    <section id="problema" aria-labelledby="problema-titulo" className="bg-white py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <span className="text-sm font-semibold text-teal-600 uppercase tracking-wide">
-            El problema
-          </span>
-          <h2 className="mt-3 text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
-            Hoy tu información vive partida
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold text-teal-700 uppercase tracking-wider">El problema</p>
+          <h2 id="problema-titulo" className="mt-3 text-3xl lg:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
+            Tu clínica no debería estar repartida entre cinco herramientas diferentes.
           </h2>
-          <p className="mt-4 text-lg text-slate-500">
-            La historia del paciente en una carpeta, los precios en un Excel, las
-            fotos en un celular y lo que se vende en la cabeza de alguien. Así se
-            pierden datos, tiempo y dinero todos los días.
+          <p className="mt-5 text-lg text-slate-600 leading-relaxed">
+            Cada herramienta sirve para algo. El problema aparece cuando la información de un mismo
+            paciente, un mismo procedimiento o un mismo mes queda en lugares distintos y nadie la
+            ve completa.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {problems.map((problem) => (
-            <div
-              key={problem.title}
-              className="group p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-red-50 hover:border-red-100 transition-colors"
-            >
-              <div className="w-12 h-12 rounded-xl bg-red-100 text-red-500 group-hover:bg-red-200 flex items-center justify-center mb-5 transition-colors">
-                {problem.icon}
-              </div>
-              <h3 className="font-semibold text-slate-900 mb-2">{problem.title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">
-                {problem.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        <ul className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {fragmentos.map((f, i) => {
+            const Icono = f.icono;
+            return (
+              <li
+                key={f.lugar}
+                className={`rounded-xl border border-slate-200 bg-slate-50 p-5 transition-transform ${desorden[i]}`}
+              >
+                <Icono className="w-5 h-5 text-slate-500" aria-hidden />
+                <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate-400">{f.lugar}</p>
+                <p className="mt-1 font-medium text-slate-800">{f.contenido}</p>
+              </li>
+            );
+          })}
+          <li className="rounded-xl border border-dashed border-slate-300 p-5 flex items-center text-sm text-slate-500 lg:rotate-1">
+            …y para ver el panorama completo, alguien tiene que reconstruirlo a mano.
+          </li>
+        </ul>
 
-        {/* Puente hacia la solución */}
-        <div className="mt-16 text-center">
-          <p className="text-slate-400 text-sm uppercase tracking-wide font-medium">
-            XIMKA reemplaza todo eso
-          </p>
-          <div className="mt-3 w-px h-12 bg-gradient-to-b from-slate-200 to-teal-400 mx-auto" />
+        {/* Transición: disperso → XIMKA → centralizado */}
+        <div className="mt-20 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-center">
+          <span className="px-5 py-3 rounded-full border border-dashed border-slate-300 text-slate-600 font-medium">
+            Información dispersa
+          </span>
+          <ArrowRight className="w-5 h-5 text-slate-400 rotate-90 md:rotate-0" aria-hidden />
+          <span className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-slate-900 text-white font-semibold">
+            <Logo className="w-6 h-6 text-teal-400" acento="#0f172a" />
+            XIMKA
+          </span>
+          <ArrowRight className="w-5 h-5 text-slate-400 rotate-90 md:rotate-0" aria-hidden />
+          <span className="px-5 py-3 rounded-full bg-teal-50 border border-teal-200 text-teal-800 font-semibold">
+            Información centralizada y trazable
+          </span>
         </div>
       </div>
     </section>

@@ -29,13 +29,16 @@ export interface Caso {
   testimonio?: { cita: string; autor: string; cargo: string };
   /** Ruta a imagen en /public. Si no existe se muestra un placeholder. */
   imagen?: string;
+  /** Logo del cliente en /public (solo casos reales, con autorización). */
+  logo?: string;
 }
 
 export const casos: Caso[] = [
   {
     slug: "cold-esthetic",
     tipo: "real",
-    nombre: "Cold Esthetic",
+    nombre: "Coldesthetic",
+    logo: "/clientes/coldesthetic.webp",
     especialidad: "Medicina estética",
     problema:
       "Pendiente de documentar con la clínica: situación antes de usar XIMKA.",
@@ -44,28 +47,30 @@ export const casos: Caso[] = [
       "Registro de procedimientos realizados.",
       "Cifras del negocio en un solo lugar.",
     ],
-    modulos: ["Historia clínica", "Procedimientos", "Finanzas"],
+    modulos: ["Historia clínica", "Procedimientos", "Estadísticas"],
     resultados: [],
   },
   {
     slug: "perfect-esthetic",
     tipo: "real",
-    nombre: "Perfect Esthetic",
+    nombre: "Perfectesthetic",
+    logo: "/clientes/perfectesthetic.webp",
     especialidad: "Medicina estética",
     problema:
       "Pendiente de documentar con la clínica: situación antes de usar XIMKA.",
     usoXimka: [
       "Gestión de pacientes.",
       "Control de inventario.",
-      "Seguimiento de la salud financiera de la clínica.",
+      "Estadísticas de la actividad del negocio.",
     ],
-    modulos: ["Pacientes", "Inventario", "Finanzas"],
+    modulos: ["Pacientes", "Inventario", "Estadísticas"],
     resultados: [],
   },
   {
     slug: "podocare",
     tipo: "real",
-    nombre: "PODOCARE",
+    nombre: "PodoCare",
+    logo: "/clientes/podocare.webp",
     especialidad: "Podología",
     problema:
       "Pendiente de documentar con la clínica: situación antes de usar XIMKA.",
@@ -85,18 +90,18 @@ export const casos: Caso[] = [
       "Un consultorio con historias en papel, inventario en Excel y la agenda coordinada por WhatsApp. La información está dispersa y no hay forma rápida de saber cuánto factura el mes.",
     usoXimka: [
       "La historia clínica de cada paciente se diligencia en XIMKA y queda bloqueada al confirmarse.",
-      "Cada procedimiento descuenta los insumos usados del inventario.",
-      "La administradora ve ingresos y consumo en tiempo real.",
+      "Los consumos de insumos se registran en el inventario y el sistema señala los productos por reponer.",
+      "La administradora consulta ingresos y procedimientos del mes sin sumar a mano.",
     ],
     modulos: [
       "Historia clínica",
       "Procedimientos",
       "Inventario",
-      "Finanzas",
+      "Estadísticas",
     ],
     resultados: [
       "Toda la información del paciente en un solo lugar.",
-      "Inventario actualizado automáticamente con cada procedimiento.",
+      "Visibilidad de qué insumos están por acabarse.",
       "Visibilidad inmediata de las cifras del negocio.",
     ],
   },

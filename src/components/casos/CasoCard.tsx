@@ -36,9 +36,19 @@ export default function CasoCard({ caso }: { caso: Caso }) {
           {e.etiqueta}
         </span>
 
-        <div>
-          <h3 className="text-xl font-bold text-slate-900">{caso.nombre}</h3>
-          <p className="text-sm text-slate-500">{caso.especialidad}</p>
+        <div className="flex items-center gap-3">
+          {caso.logo && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={caso.logo}
+              alt={`Logo de ${caso.nombre}`}
+              className="w-12 h-12 rounded-full object-cover border border-slate-200 bg-white"
+            />
+          )}
+          <div>
+            <h3 className="text-xl font-bold text-slate-900">{caso.nombre}</h3>
+            <p className="text-sm text-slate-500">{caso.especialidad}</p>
+          </div>
         </div>
 
         {caso.imagen ? (

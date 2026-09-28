@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import CTASection from "@/components/CTASection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "XIMKA — Tu clínica entera en un solo lugar",
+  title: "XIMKA — Gestión integral de tu clínica en un solo lugar",
   description:
-    "Historia clínica, procedimientos, inventario y las cifras de tu negocio en un solo lugar. Sin papel, sin Excel suelto, sin grupos de WhatsApp. XIMKA ya opera en clínicas reales en Colombia.",
+    "Historia clínica, pacientes, procedimientos, inventario e información de tu negocio, centralizados en una sola plataforma para clínicas y consultorios.",
 };
 
 export default function RootLayout({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Header />
         {children}
+        <CTASection />
       </body>
     </html>
   );
