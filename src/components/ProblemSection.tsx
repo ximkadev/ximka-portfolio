@@ -9,6 +9,7 @@ import {
   Paperclip,
 } from "lucide-react";
 import Logo from "./Logo";
+import Revelar from "./Revelar";
 
 // No se presentan estas herramientas como "malas": el problema es que la
 // información de una misma clínica termina repartida entre todas ellas.
@@ -29,7 +30,7 @@ export default function ProblemSection() {
   return (
     <section id="problema" aria-labelledby="problema-titulo" className="bg-white py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl">
+        <Revelar className="max-w-3xl">
           <p className="text-sm font-semibold text-teal-700 uppercase tracking-wider">El problema</p>
           <h2 id="problema-titulo" className="mt-3 text-3xl lg:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
             Tu clínica no debería estar repartida entre cinco herramientas diferentes.
@@ -39,42 +40,49 @@ export default function ProblemSection() {
             paciente, un mismo procedimiento o un mismo mes queda en lugares distintos y nadie la
             ve completa.
           </p>
-        </div>
+        </Revelar>
 
         <ul className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {fragmentos.map((f, i) => {
             const Icono = f.icono;
             return (
-              <li
-                key={f.lugar}
-                className={`rounded-xl border border-slate-200 bg-slate-50 p-5 transition-transform ${desorden[i]}`}
-              >
-                <Icono className="w-5 h-5 text-slate-500" aria-hidden />
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate-400">{f.lugar}</p>
-                <p className="mt-1 font-medium text-slate-800">{f.contenido}</p>
-              </li>
+              <Revelar como="li" key={f.lugar} retraso={i * 70} className={desorden[i]}>
+                {/* Cada fragmento flota a su ritmo: se lee como información suelta. */}
+                <div
+                  className="flotar h-full rounded-xl border border-slate-200 bg-slate-50 p-5"
+                  style={{ animationDelay: `${-i * 0.9}s`, animationDuration: `${6 + (i % 3)}s` }}
+                >
+                  <Icono className="w-5 h-5 text-slate-500" aria-hidden />
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate-400">{f.lugar}</p>
+                  <p className="mt-1 font-medium text-slate-800">{f.contenido}</p>
+                </div>
+              </Revelar>
             );
           })}
-          <li className="rounded-xl border border-dashed border-slate-300 p-5 flex items-center text-sm text-slate-500 lg:rotate-1">
+          <Revelar
+            como="li"
+            retraso={fragmentos.length * 70}
+            className="rounded-xl border border-dashed border-slate-300 p-5 flex items-center text-sm text-slate-500 lg:rotate-1"
+          >
             …y para ver el panorama completo, alguien tiene que reconstruirlo a mano.
-          </li>
+          </Revelar>
         </ul>
 
         {/* Transición: disperso → XIMKA → centralizado */}
-        <div className="mt-20 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-center">
+        <Revelar className="mt-20 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-center">
           <span className="px-5 py-3 rounded-full border border-dashed border-slate-300 text-slate-600 font-medium">
             Información dispersa
           </span>
-          <ArrowRight className="w-5 h-5 text-slate-400 rotate-90 md:rotate-0" aria-hidden />
+          <span className="rotate-90 md:rotate-0"><ArrowRight className="avanzar w-5 h-5 text-slate-400" aria-hidden /></span>
           <span className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-slate-900 text-white font-semibold">
             <Logo className="h-4" sobreOscuro />
             XIMKA
           </span>
-          <ArrowRight className="w-5 h-5 text-slate-400 rotate-90 md:rotate-0" aria-hidden />
+          <span className="rotate-90 md:rotate-0"><ArrowRight className="avanzar w-5 h-5 text-slate-400" aria-hidden /></span>
           <span className="px-5 py-3 rounded-full bg-teal-50 border border-teal-200 text-teal-800 font-semibold">
             Información centralizada y trazable
           </span>
-        </div>
+        </Revelar>
       </div>
     </section>
   );

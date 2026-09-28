@@ -15,7 +15,7 @@ export default function BotonesDemo({ className = "" }: { className?: string }) 
     <div className={`flex flex-col sm:flex-row gap-3 ${className}`}>
       <a
         href={MAILTO_DEMO}
-        className="inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-400 text-white font-semibold px-6 py-3 rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-400"
+        className="inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-400 hover:-translate-y-0.5 text-white font-semibold px-6 py-3 rounded-lg transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-400"
       >
         <Mail className="w-4 h-4" aria-hidden />
         Solicita una demo
@@ -24,7 +24,7 @@ export default function BotonesDemo({ className = "" }: { className?: string }) 
         href={WHATSAPP_DEMO}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+        className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5b] hover:-translate-y-0.5 text-white font-semibold px-6 py-3 rounded-lg transition"
       >
         <IconoWhatsApp className="w-5 h-5" />
         Contactar por WhatsApp
@@ -44,7 +44,9 @@ export function WhatsAppFlotante() {
       title="Contactar por WhatsApp"
       className="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white grid place-items-center shadow-lg shadow-black/20 transition-transform hover:scale-105"
     >
-      <IconoWhatsApp className="w-7 h-7" />
+      {/* Pulso ocasional para que se note sin distraer. */}
+      <span aria-hidden className="pulso-anillo absolute inset-0 rounded-full bg-[#25D366]" />
+      <IconoWhatsApp className="relative w-7 h-7" />
     </a>
   );
 }
