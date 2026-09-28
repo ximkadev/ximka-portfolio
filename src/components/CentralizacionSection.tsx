@@ -63,8 +63,7 @@ export default function CentralizacionSection() {
         </div>
 
         {/* El paciente en el centro, con lo que cuelga de su registro alrededor. */}
-        <div aria-hidden className="relative mx-auto w-full max-w-md aspect-square">
-          <div className="absolute inset-[18%] rounded-full border border-dashed border-teal-300" />
+        <div aria-hidden className="orbita-pausable relative mx-auto w-full max-w-md aspect-square">
           <div className="absolute inset-[36%] rounded-full bg-white border border-slate-200 shadow-lg grid place-items-center text-center">
             <div>
               <UserRound className="w-7 h-7 mx-auto text-teal-600" />
@@ -75,6 +74,9 @@ export default function CentralizacionSection() {
               </p>
             </div>
           </div>
+          {/* El anillo con los módulos gira alrededor del paciente. */}
+          <div className="orbita absolute inset-0">
+            <div className="absolute inset-[18%] rounded-full border border-dashed border-teal-300" />
           {modulos.map((m, i) => {
             const angulo = (i / modulos.length) * 2 * Math.PI - Math.PI / 2;
             const x = 50 + 41 * Math.cos(angulo);
@@ -83,16 +85,20 @@ export default function CentralizacionSection() {
             return (
               <div
                 key={m.label}
-                className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5"
+                className="absolute -translate-x-1/2 -translate-y-1/2"
                 style={{ left: `${x}%`, top: `${y}%` }}
               >
-                <span className="w-12 h-12 rounded-2xl bg-white border border-slate-200 shadow-sm grid place-items-center">
-                  <Icono className="w-5 h-5 text-teal-700" />
-                </span>
-                <span className="text-xs font-semibold text-slate-700 whitespace-nowrap">{m.label}</span>
+                {/* Gira al revés que el anillo: el módulo se mantiene derecho. */}
+                <div className="orbita-contraria flex flex-col items-center gap-1.5">
+                  <span className="w-12 h-12 rounded-2xl bg-white border border-slate-200 shadow-sm grid place-items-center">
+                    <Icono className="w-5 h-5 text-teal-700" />
+                  </span>
+                  <span className="text-xs font-semibold text-slate-700 whitespace-nowrap">{m.label}</span>
+                </div>
               </div>
             );
           })}
+          </div>
         </div>
       </div>
     </section>

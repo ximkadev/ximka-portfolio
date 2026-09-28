@@ -22,3 +22,31 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+/* Órbita del diagrama "La solución": el anillo gira y cada módulo gira en
+   sentido contrario para mantenerse derecho. Pausa al pasar el mouse. */
+@keyframes orbitar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbita {
+  animation: orbitar 48s linear infinite;
+}
+
+.orbita-contraria {
+  animation: orbitar 48s linear infinite reverse;
+}
+
+.orbita-pausable:hover .orbita,
+.orbita-pausable:hover .orbita-contraria {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbita,
+  .orbita-contraria {
+    animation: none;
+  }
+}
