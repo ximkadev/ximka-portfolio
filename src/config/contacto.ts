@@ -27,3 +27,8 @@ export const MAILTO_DEMO = `mailto:${CORREO}?subject=${encodeURIComponent(ASUNTO
 export const MAILTO_CONTACTO = `mailto:${CORREO}`;
 
 export const WHATSAPP_DEMO = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(MENSAJE_DEMO)}`;
+
+/** WhatsApp de Karol Cheverria (founder), como contacto adicional. */
+export const WHATSAPP_KAROL_NUMERO = "573232205474";
+export const WHATSAPP_KAROL_VISIBLE = "+57 323 220 5474";
+export const WHATSAPP_KAROL_DEMO = `https://wa.me/${WHATSAPP_KAROL_NUMERO}?text=${encodeURIComponent(MENSAJE_DEMO)}`;

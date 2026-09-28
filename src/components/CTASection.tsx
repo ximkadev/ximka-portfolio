@@ -6,6 +6,8 @@ import {
   CORREO,
   MAILTO_CONTACTO,
   WHATSAPP_DEMO,
+  WHATSAPP_KAROL_DEMO,
+  WHATSAPP_KAROL_VISIBLE,
   WHATSAPP_VISIBLE,
 } from "@/config/contacto";
 
@@ -61,6 +63,18 @@ export default function CTASection() {
                 >
                   <IconoWhatsApp className="w-4 h-4" />
                   {WHATSAPP_VISIBLE}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={WHATSAPP_KAROL_DEMO}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-teal-300"
+                >
+                  <IconoWhatsApp className="w-4 h-4" />
+                  {WHATSAPP_KAROL_VISIBLE}
+                  <span className="text-slate-500">· Karol Cheverria</span>
                 </a>
               </li>
             </ul>
