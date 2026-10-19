@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ximka-portfolio
 
-## Getting Started
+Sitio público de XIMKA (Next.js 16, App Router, Tailwind 4). Todas las rutas son
+estáticas: `/`, `/historia-clinica-demo`, `/casos` y `/tecnologia`.
 
-First, run the development server:
+## Desarrollo
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev      # http://localhost:3000
+npm run lint
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Variables de entorno
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Para qué | Si falta |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | URL pública del sitio, sin barra final (p. ej. `https://ximka.ejemplo`). Con ella se construyen el canonical, el sitemap, `robots.txt` y la imagen de vista previa al compartir el enlace. | En Vercel se usa la URL de producción del proyecto; en local, `http://localhost:3000`. |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Definirla en el entorno de producción antes de publicar: sin ella, los enlaces
+compartidos por WhatsApp o LinkedIn apuntarían la vista previa al dominio de
+Vercel y no al propio.
 
-## Learn More
+## Qué hay dónde
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/config/sitio.ts`: nombre, descripción y URL del sitio (una sola fuente para los metadatos).
+- `src/config/contacto.ts`: correo de contacto y enlaces `mailto:`.
+- `src/data/casos.ts`: los casos de `/casos`, con sus reglas en la cabecera del archivo.
+- `src/app/opengraph-image.tsx`: la imagen de vista previa, generada en el build a partir del logo.
+- `src/components/TestimoniosSection.tsx`: solo se muestra con contenido; en producción queda oculta mientras esté vacía.

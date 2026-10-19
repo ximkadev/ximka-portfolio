@@ -5,10 +5,15 @@
  * - `tipo: "real"` solo para clínicas que usan XIMKA en producción.
  * - `tipo: "demo"` para escenarios de referencia o conceptos que no están en
  *   producción. Se muestran marcados como demostrativos y nunca como cliente.
+ * - `problema` solo cuando la clínica lo haya contado. Si falta, la tarjeta
+ *   omite esa sección: un "pendiente de documentar" no le dice nada a quien
+ *   está evaluando XIMKA y hace ver el caso como inacabado.
  * - `resultados` debe contener únicamente resultados confirmados por el
  *   cliente. Si aún no hay resultados validados, déjalo como arreglo vacío y
- *   la página mostrará "Resultados pendientes de validar con el cliente".
+ *   la tarjeta no muestra la sección (nunca se inventan cifras).
  * - `testimonio` solo con autorización del cliente; si no existe, omítelo.
+ * - `imagen` cuando exista una captura autorizada; sin ella, los casos reales
+ *   muestran su logo y módulos, y los demos una ilustración.
  */
 
 export type TipoCaso = "real" | "demo";
@@ -18,8 +23,8 @@ export interface Caso {
   tipo: TipoCaso;
   nombre: string;
   especialidad: string;
-  /** Situación de la clínica antes de XIMKA. */
-  problema: string;
+  /** Situación de la clínica antes de XIMKA, contada por la clínica. */
+  problema?: string;
   /** Cómo se utiliza (o se utilizaría, en un demo) XIMKA. */
   usoXimka: string[];
   /** Módulos de XIMKA involucrados. */
@@ -40,8 +45,6 @@ export const casos: Caso[] = [
     nombre: "Coldesthetic",
     logo: "/clientes/coldesthetic.webp",
     especialidad: "Medicina estética",
-    problema:
-      "Pendiente de documentar con la clínica: situación antes de usar XIMKA.",
     usoXimka: [
       "Historia clínica digital de cada paciente.",
       "Registro de procedimientos realizados.",
@@ -56,8 +59,6 @@ export const casos: Caso[] = [
     nombre: "Perfectesthetic",
     logo: "/clientes/perfectesthetic.webp",
     especialidad: "Medicina estética",
-    problema:
-      "Pendiente de documentar con la clínica: situación antes de usar XIMKA.",
     usoXimka: [
       "Gestión de pacientes.",
       "Control de inventario.",
@@ -72,8 +73,6 @@ export const casos: Caso[] = [
     nombre: "PodoCare",
     logo: "/clientes/podocare.webp",
     especialidad: "Podología",
-    problema:
-      "Pendiente de documentar con la clínica: situación antes de usar XIMKA.",
     usoXimka: [
       "Registro de cada tratamiento y procedimiento.",
       "Trazabilidad de la atención de cada paciente.",

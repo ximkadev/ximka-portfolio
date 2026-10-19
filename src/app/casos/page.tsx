@@ -4,9 +4,10 @@ import CasosExplorer from "@/components/casos/CasosExplorer";
 import { casos } from "@/data/casos";
 
 export const metadata: Metadata = {
-  title: "Casos — XIMKA",
+  title: "Casos",
   description:
     "Clínicas que ya operan sobre XIMKA y escenarios demostrativos que muestran cómo se usaría en otras clínicas.",
+  alternates: { canonical: "/casos" },
 };
 
 export default function CasosPage() {

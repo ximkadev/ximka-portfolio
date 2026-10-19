@@ -39,8 +39,10 @@ const ejemplos = [
 ];
 
 export default function CentralizacionSection() {
+  // overflow-x-clip: el anillo que gira sobresale unos píxeles del ancho en
+  // pantallas angostas y, sin esto, la página entera ganaba scroll horizontal.
   return (
-    <section aria-labelledby="solucion-titulo" className="bg-slate-50 border-y border-slate-200/70 py-24 lg:py-32">
+    <section aria-labelledby="solucion-titulo" className="overflow-x-clip bg-slate-50 border-y border-slate-200/70 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <p className="text-sm font-semibold text-teal-700 uppercase tracking-wider">La solución</p>

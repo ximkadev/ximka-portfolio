@@ -127,20 +127,24 @@ function VisualInventario() {
 }
 
 function VisualEstadisticas() {
+  // Cifras ficticias, como en el resto de ilustraciones: una barra gris en
+  // lugar del valor parecía un indicador que no terminó de cargar.
   const kpis = [
-    { k: "Ingresos del mes", v: "vs. mes anterior" },
-    { k: "Pacientes atendidos", v: "vs. mes anterior" },
-    { k: "Procedimientos", v: "vs. mes anterior" },
+    { k: "Ingresos del mes", valor: "$ 24,6 M", delta: "+12 %" },
+    { k: "Pacientes atendidos", valor: "148", delta: "+8 %" },
+    { k: "Procedimientos", valor: "213", delta: "+15 %" },
   ];
   const barras = [38, 52, 45, 61, 58, 72, 66, 80];
   return (
-    <Marco nota="Ilustración: los indicadores se calculan con la información registrada en XIMKA">
+    <Marco nota="Ilustración con datos ficticios: los indicadores se calculan con la información registrada en XIMKA">
       <div className="grid grid-cols-3 gap-3">
         {kpis.map((x) => (
           <div key={x.k} className="rounded-xl bg-slate-50 border border-slate-100 p-3">
             <p className="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">{x.k}</p>
-            <div className="mt-2 h-4 w-3/4 rounded bg-slate-200" />
-            <p className="mt-1.5 text-[10px] text-teal-700 font-semibold">{x.v}</p>
+            <p className="mt-1.5 text-lg font-bold tabular-nums text-slate-900 leading-tight">{x.valor}</p>
+            <p className="mt-1 text-[10px] text-teal-700 font-semibold">
+              {x.delta} <span className="text-slate-400 font-normal">vs. mes anterior</span>
+            </p>
           </div>
         ))}
       </div>
