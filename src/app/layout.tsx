@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import CTASection from "@/components/CTASection";
-import { WhatsAppFlotante } from "@/components/BotonesDemo";
 import { DESCRIPCION_SITIO, NOMBRE_SITIO, TITULO_SITIO, URL_SITIO } from "@/config/sitio";
 
 const geistSans = Geist({
@@ -55,7 +54,6 @@ export default function RootLayout({
         <Header />
         {children}
         <CTASection />
-        <WhatsAppFlotante />
       </body>
     </html>
   );

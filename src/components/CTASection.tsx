@@ -1,15 +1,8 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import Logo from "./Logo";
-import BotonesDemo, { IconoWhatsApp } from "./BotonesDemo";
-import {
-  CORREO,
-  MAILTO_CONTACTO,
-  WHATSAPP_DEMO,
-  WHATSAPP_KAROL_DEMO,
-  WHATSAPP_KAROL_VISIBLE,
-  WHATSAPP_VISIBLE,
-} from "@/config/contacto";
+import BotonesDemo from "./BotonesDemo";
+import { CORREO, MAILTO_CONTACTO } from "@/config/contacto";
 
 const navegacion = [
   { href: "/#producto", label: "Producto" },
@@ -52,29 +45,6 @@ export default function CTASection() {
                 <a href={MAILTO_CONTACTO} className="inline-flex items-center gap-2 hover:text-teal-300">
                   <Mail className="w-4 h-4" aria-hidden />
                   {CORREO}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={WHATSAPP_DEMO}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-teal-300"
-                >
-                  <IconoWhatsApp className="w-4 h-4" />
-                  {WHATSAPP_VISIBLE}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={WHATSAPP_KAROL_DEMO}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-teal-300"
-                >
-                  <IconoWhatsApp className="w-4 h-4" />
-                  {WHATSAPP_KAROL_VISIBLE}
-                  <span className="text-slate-500">· Karol Cheverria</span>
                 </a>
               </li>
             </ul>
