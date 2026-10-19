@@ -4,9 +4,10 @@ import HistoriaDemoViewer from "@/components/historia/HistoriaDemoViewer";
 import { MAILTO_DEMO } from "@/config/contacto";
 
 export const metadata: Metadata = {
-  title: "Historia clínica demo — XIMKA",
+  title: "Historia clínica demo",
   description:
     "Recorrido interactivo por la historia clínica de XIMKA, con datos ficticios.",
+  alternates: { canonical: "/historia-clinica-demo" },
 };
 
 const capacidades = [

@@ -3,9 +3,10 @@ import Link from "next/link";
 import { MAILTO_DEMO } from "@/config/contacto";
 
 export const metadata: Metadata = {
-  title: "Cómo está construido XIMKA — XIMKA",
+  title: "Cómo está construido XIMKA",
   description:
     "Arquitectura, seguridad y stack tecnológico de XIMKA: una plataforma en producción construida con prácticas pensadas para datos clínicos reales. Laravel, Next.js, Docker y almacenamiento privado.",
+  alternates: { canonical: "/tecnologia" },
 };
 
 const blocks = [

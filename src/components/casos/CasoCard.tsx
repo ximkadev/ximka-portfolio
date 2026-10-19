@@ -20,6 +20,36 @@ const estilos = {
   },
 };
 
+/**
+ * Visual de un cliente real que todavía no tiene captura de pantalla: su
+ * logo sobre la marca. Es lo que SÍ sabemos del caso; nunca un marco vacío
+ * con una nota interna. Los módulos ya van como chips más abajo.
+ */
+function VisualCliente({ caso }: { caso: Caso }) {
+  return (
+    <div
+      aria-hidden
+      className="w-full aspect-video rounded-xl border border-slate-200 bg-gradient-to-br from-slate-50 to-teal-50/60 flex flex-col items-center justify-center gap-3 p-6"
+    >
+      {caso.logo ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={caso.logo}
+          alt=""
+          className="w-24 h-24 rounded-full object-cover border border-slate-200 bg-white shadow-sm"
+        />
+      ) : (
+        <span className="w-24 h-24 rounded-full bg-white border border-slate-200 grid place-items-center text-2xl font-bold text-teal-700">
+          {caso.nombre.slice(0, 2).toUpperCase()}
+        </span>
+      )}
+      <p className="text-xs font-semibold uppercase tracking-wider text-teal-700/80">
+        En producción con XIMKA
+      </p>
+    </div>
+  );
+}
+
 export default function CasoCard({ caso }: { caso: Caso }) {
   const e = estilos[caso.tipo];
 
@@ -58,23 +88,21 @@ export default function CasoCard({ caso }: { caso: Caso }) {
             alt={`XIMKA en ${caso.nombre}`}
             className="w-full rounded-xl border border-slate-200"
           />
+        ) : caso.tipo === "real" ? (
+          <VisualCliente caso={caso} />
         ) : (
-          <Placeholder
-            label={
-              caso.tipo === "real"
-                ? `SCREENSHOT: XIMKA EN ${caso.nombre.toUpperCase()}`
-                : "ILUSTRACIÓN DEL ESCENARIO DEMO"
-            }
-            aspectRatio="video"
-          />
+          <Placeholder label="Ilustración del escenario demo" aspectRatio="video" />
         )}
       </div>
 
       <div className="p-6 flex-1 flex flex-col gap-5 text-sm">
-        <section>
-          <h4 className="font-semibold text-slate-900 mb-1">El problema</h4>
-          <p className="text-slate-600 leading-relaxed">{caso.problema}</p>
-        </section>
+        {/* Solo cuando hay algo que contar: un "pendiente" no es información para quien evalúa XIMKA. */}
+        {caso.problema && (
+          <section>
+            <h4 className="font-semibold text-slate-900 mb-1">El problema</h4>
+            <p className="text-slate-600 leading-relaxed">{caso.problema}</p>
+          </section>
+        )}
 
         <section>
           <h4 className="font-semibold text-slate-900 mb-1">
@@ -101,31 +129,29 @@ export default function CasoCard({ caso }: { caso: Caso }) {
           ))}
         </div>
 
-        <section className="mt-auto">
-          <h4 className="font-semibold text-slate-900 mb-1">
-            {e.tituloResultados}
-          </h4>
-          {caso.resultados.length > 0 ? (
-            <ul className="space-y-1.5">
-              {caso.resultados.map((r) => (
-                <li key={r} className="flex gap-2 text-slate-600">
-                  <span className={e.bullet}>✓</span>
-                  {r}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-slate-400 italic">
-              Resultados pendientes de validar con el cliente.
-            </p>
-          )}
-          {caso.tipo === "demo" && (
-            <p className="mt-3 text-xs text-amber-800/80">
-              Escenario ilustrativo: no corresponde a una clínica real ni a
-              resultados medidos.
-            </p>
-          )}
-        </section>
+        {(caso.resultados.length > 0 || caso.tipo === "demo") && (
+          <section className="mt-auto">
+            {caso.resultados.length > 0 && (
+              <>
+                <h4 className="font-semibold text-slate-900 mb-1">{e.tituloResultados}</h4>
+                <ul className="space-y-1.5">
+                  {caso.resultados.map((r) => (
+                    <li key={r} className="flex gap-2 text-slate-600">
+                      <span className={e.bullet}>✓</span>
+                      {r}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {caso.tipo === "demo" && (
+              <p className="mt-3 text-xs text-amber-800/80">
+                Escenario ilustrativo: no corresponde a una clínica real ni a
+                resultados medidos.
+              </p>
+            )}
+          </section>
+        )}
 
         {caso.testimonio && (
           <blockquote className="bg-slate-50 border border-slate-200 rounded-xl p-4">
